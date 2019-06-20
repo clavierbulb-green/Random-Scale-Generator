@@ -10,8 +10,10 @@ modes = ('major', 'minor')
 NUM_KEYS = len(keys)
 NUM_MODES = len(modes)
 
-layout = [[sg.Text('Your random scale: '), 
-    sg.Text('', key='_OUTPUT_', size=(10,1))],
+layout = [[sg.Image(filename="circle_of_fifths.png")], 
+          [sg.Text('Your random scale: ', size=(20, 2), 
+          font=("Helvetica, 14")), 
+           sg.Text('', key='_OUTPUT_', size=(15,2), font=("Helvetica, 14"))],
           [sg.Button('New Scale')]]
 
 window = sg.Window('Random Scale Generator', layout, return_keyboard_events=True)
