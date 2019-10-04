@@ -39,11 +39,11 @@ def main():
 
     for n in range(args.number):
         key = randomKey(mode, args.accidentals)
-        print(key.name.replace('-', 'b'))
+        print(key.tonic.unicodeName, key.mode)
 
         if args.verbose:
             # Print the pitches of the chosen key
-            print(' '.join([p.name for p in key.pitches]).replace('-', 'b'))
+            print(' '.join([p.unicodeName for p in key.pitches]))
 
         print()
 
