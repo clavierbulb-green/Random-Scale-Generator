@@ -2,6 +2,8 @@ import music21
 import random
 import argparse
 
+from colorama import Fore, Style
+
 # Define cmd-line arguments
 parser = argparse.ArgumentParser()
 parser.add_argument("-n", "--number", type=int, default=1,
@@ -39,13 +41,14 @@ def main():
 
     for n in range(args.number):
         key = randomKey(mode, args.accidentals)
+        print(Fore.BLUE)
         print(key.tonic.unicodeName, key.mode)
+        print(Style.RESET_ALL)
 
         if args.verbose:
             # Print the pitches of the chosen key
-            print(' '.join([p.unicodeName for p in key.pitches]))
-
-        print()
+            print(*[p.unicodeName for p in key.pitches])
+            print()
 
 
 if __name__ == "__main__":
